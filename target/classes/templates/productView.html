@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:position="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Product details</title>
+    <link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
+
+    <style>
+div.relative {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 3px solid #73AD21;
+}
+
+div.absolute {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  border: 3px solid #73AD21;
+}
+</style>
+</head>
+<body>
+
+    <h1 position:relative; style="color:red; font-family:courier;" th:text="${product.name}"></h1>
+    <!--//afiseaza numele produsului-->
+    <h1 position:relative; style="color:yellow; font-family:courier;" th:text="${product.quantity}"></h1>
+    <!--afiseaza cantitatea-->
+    <h1 position:relative; style="color:blue; font-family:courier;" th:text="${product.price}"></h1>
+
+<style>
+            body > div {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+
+
+</style>
+<div>
+    <img th:src="${product.imageUrl}" alt="Peste de captura">
+</div>
+
+
+</body>
+</html>
