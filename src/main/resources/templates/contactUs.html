@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Front Page</title>
+    <title>ContactUs</title>
 
     <link href="https://fonts.googleapis.com/css?family=Courgette%7COpen+Sans&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -12,34 +12,22 @@
             integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
             crossorigin="anonymous"></script>
 
-
     <style>
         body {
-            background-image: url('/imagines/Meduze.jpg');
+            background-image: url('/imagines/talkingfish.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
         }
 
-        .myCarousel {
-            margin: auto;
-            width: 30%;
-            height: 30%;
+        .card {
+            padding-left: 00px;
+            padding-right: 00px;
+            box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2);
+            background-color: #f2f2f2 !important;
+            transition: 0.3s;
         }
-
-        #design {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        #keyword {
-            height: 30px;
-        }
-
-
     </style>
-
-
 </head>
 <body>
 
@@ -52,7 +40,7 @@
                  class="d-inline-block align-text-top">
         </a>
         <a class="navbar-brand" href="/frontpage"> <b>   Welcome to Solzi, the fish store!</b>
-            </a>
+        </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,10 +49,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/frontpage"><b>[Home]</b></a>
+                    <a class="nav-link active" aria-current="page" href="/frontpage">[Home]</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/contactUs">[Contact Us]</a>
+                    <a class="nav-link " href="/contactUs"><b>[Contact Us]</b></a>
                 </li>
                 <li class="nav-item dropdown" sec:authorize="!isAuthenticated()">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -79,9 +67,9 @@
                 <li class="nav-item" sec:authorize="isAuthenticated()">
                     <a class="nav-link " href="/logout">[Logout]</a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link " href="/leasing">[Leasing]</a>-->
-<!--                </li>-->
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link " href="/leasing">[Leasing]</a>-->
+                <!--                </li>-->
                 <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
                     <a class="nav-link" href="/product/add">[Add product]</a>
                 </li>
@@ -125,35 +113,42 @@
 <br>
 
 
+<div class="container">
+    <div class="row" style="margin-left:320px">
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/imagines/Stoc.jpg" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text"><b>Petru stoc & comanda: Dan Dumitras
+                    <br>
+                    Telefon/WhatsApp: 0751110157</b></p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/imagines/Magazin.jpg" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text"><b>Str. Simion Barnutiu, Nr.51A, Timisoara, Romania
+                    <br>
+                    <a href="https://www.google.com/search?q=simion+barnutiu+nr.51a+timisoara&oq=simion+Barnutiu+nr.51a&aqs=chrome.1.69i57j33i160.10026j0j7&sourceid=chrome&ie=UTF-8" class="btn btn-primary stretched-link">Mergi la Solzi</a>
+                    <br>
+                </b></p>
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/imagines/File.jpg" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text"><b>Petru curatat & filetat: Diana Lucaciu
+                    <br>
+                    Telefon/WhatsApp: 0727132735</b></p>
+            </div>
+        </div>
 
 
 
-    <div class="row">
-        <br>
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Weight/piece</th>
-                <th>Price</th>
-                <th>Quantity(kg)</th>
-                <th>Details</th>
-            </tr>
-            <tr th:each="product:${productList}">
-                <div class="graphic-container">
-                <td th:text="${product.productId}"></td>
-                <td th:text="${product.name}"></td>
-                <td th:text="${product.weight}"></td>
-                <td th:text="${product.price}"></td>
-                <td th:text="${product.quantity}"></td>
 
-                <td>
-                    <!--            //product de mai jos din link(/product/) e un simplu String-->
-                    <a th:href="@{'/product/'+ ${product.productId}}">View product details</a>
-                </td>
-                </div>
-            </tr>
-        </table>
     </div>
 </div>
 

@@ -38,6 +38,12 @@ public class SecurityController {
         return modelAndView;
     }
 
+    @GetMapping("/contactUs")
+    public ModelAndView contactUs(){
+        ModelAndView modelAndView = new ModelAndView("contactUs");
+        return modelAndView;
+    }
+
     @PostMapping("/register")
     public ModelAndView registerUser(@ModelAttribute ("registerContainer") RegisterModel registerModel){
         ModelAndView modelAndView = new ModelAndView("redirect:/frontpage");
